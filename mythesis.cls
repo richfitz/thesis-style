@@ -41,7 +41,7 @@
 %   https://gist.github.com/richfitz/2324707
 % So this switches between Minion Pro and Palatino, which at least
 % looks substantially nicer than Computer Modern.
-\IfFileExists{MinionProx.sty}{
+\IfFileExists{MinionPro.sty}{
 \RequirePackage{MnSymbol}
 \RequirePackage[mathlf,minionint]{MinionPro} % consider opticals?
 \RequirePackage[protrusion=true,expansion=false,verbose=silent]{microtype}
