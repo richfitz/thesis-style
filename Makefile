@@ -1,3 +1,5 @@
+all: thesis.pdf
+
 thesis.pdf: *.tex *.bib
 	pdflatex thesis
 	bibtex thesis
