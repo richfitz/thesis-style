@@ -34,7 +34,7 @@
 \LoadClass[letterpaper]{report}
 
 %% PAGE LAYOUT
-\RequirePackage[hmargin=3.5cm,vmargin=3.5cm]{geometry}
+\RequirePackage[top=2.54cm, bottom=2.54cm, left=3.05cm, right=2.54cm]{geometry}
 
 % NOTE: I am a big fan of Minion Pro, especially for small caps.
 % However, installing it is a pain:
@@ -72,15 +72,15 @@
 \renewcommand{\headrulewidth}{0pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[LE,RO]{\footnotesize\thepage}
+\fancyhead[RO,RE]{\footnotesize\thepage}
 \ifversioninfo
-\fancyfoot[LO,RE]{\footnotesize\gitAuthorDate~(\gitAbbrevHash)}
+\fancyfoot[RO,RE]{\footnotesize\gitAuthorDate~(\gitAbbrevHash)}
 \fancypagestyle{plain}{
   \fancyhf{}
   \fancyfoot[LE,RO]{\footnotesize\thepage}
   \fancyfoot[LO,RE]{\footnotesize\gitAuthorDate~(\gitAbbrevHash)}}
 \else
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[LE,RO]{\footnotesize\thepage}}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[LE,RO]{\footnotesize\thepage}}
 \fi
 \pagenumbering{roman}
 
@@ -96,8 +96,8 @@
 % This will set the page numbering to arabic and include the chapter
 % number in the right header for the main body of the text.
 \newcommand{\mainbody}{\clearpage%
-  \pagenumbering{arabic}%
-  \fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{chapter \thechapter}}}}
+  \pagenumbering{arabic}}%
+%  \fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{chapter \thechapter}}}}
 %\rhead{\footnotesize{\spacedsmallcaps{Chapter \thechapter}}}}
 %\fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{\MakeTextLowercase{\leftmark}}}}
 %\fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{\nouppercase{\leftmark}}}}
@@ -107,7 +107,8 @@
 \AtBeginEnvironment{thebibliography}{\interlinepenalty=10000}
 \newcommand{\formatbibliography}{\clearpage%
   \singlespacing
-  \fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{bibliography}}}}
+}
+%  \fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{bibliography}}}}
 
 \newcommand{\formatappendices}{\clearpage%
   \textspacing
@@ -145,44 +146,48 @@
 \def\department{\gdef\@department}
 \def\institution{\gdef\@institution}
 \def\campus{\gdef\@campus}
+\def\majorprofessor{\gdef\@majorprofessor}
 
 \def\month{\gdef\@month}
 \def\year{\gdef\@year}
 
 % Defaults:
-\def\@institution{The University of British Columbia}
-\def\@faculty{The Faculty of Graduate Studies}
-\def\@campus{Vancouver}
+\def\@institution{University of Idaho}
+\def\@faculty{College of Graduate Studies}
+\def\@campus{Moscow}
+\def\@majorprofessor{Big Deal, Ph.D.}
 
 \def\maketitle{
 \thispagestyle{empty}
 \singlespacing
 \begin{center}
   \phantom{}\vspace{40pt}
-  {\LARGE\spacedsmallcaps{\@title}\\[14pt]}
+  {\LARGE\spacedsmallcaps{\@title}\\}
+  \bigskip\bigskip\bigskip
+
+  \textit{Presented in Partial Fulfillment of}\\
+  \textit{the Requirements for the Degree of}\\[12pt]
+  {\large\textsc\@degreetitle\\[12pt]}
+  \textit{with a Major in}\\[12pt]
+  {\@department\\[12pt]
+   \textit{in the}\\[12pt] 
+    \@faculty\\[12pt]
+    \@institution\\}
+  \bigskip\bigskip\bigskip\bigskip
+
   \textit{by}\\[12pt]
   {\large\textssc\@author\\[6pt]}
+  {\footnotesize\@previousdegrees}\\[12pt]
+  \bigskip
 
-  {\footnotesize\@previousdegrees}
-  \vfill
+  \@month\ \@year\\[12pt]
+  \bigskip
 
-  A thesis submitted in partial fulfillment of\\
-  the requirements for the degree of\\[12pt]
-  {\large\textsc\@degreetitle\\[12pt]}
-  \textit{in}\\[12pt]
-  {\@faculty\\
-    (\@department)\\[12pt]
-    \@institution\\
-    (\@campus)}
-  \vfill\vfill
-
-  \@month\ \@year\\[24pt]
-  {\footnotesize{\copyright} \@author, \@year}
+  {\textit{Major Professor: }\textsc\@majorprofessor}\\[24pt]
 \end{center}
 \textspacing
 \newpage
 }
-
 %% TABLE OF CONTENTS:
 
 % tocbibind: cause list of figures, tables in the toc
