@@ -257,7 +257,7 @@
 {\normalfont\normalsize\itshape}
 \titleformat{\subsubsection}[runin]{\normalfont\sc}{}{0pt}{}[\hspace{1.2ex}---]
 
-\titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+\titlespacing*{\chapter}{0pt}{-1.5\baselineskip}{1.2\baselineskip}
 \titlespacing*{\section}{0pt}{1\baselineskip}{.25\baselineskip}
 \titlespacing*{\subsection}{0pt}{1\baselineskip}{.25\baselineskip}
 
