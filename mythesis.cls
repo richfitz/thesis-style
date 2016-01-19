@@ -151,7 +151,7 @@
 
 % Defaults:
 \def\@institution{The University of British Columbia}
-\def\@faculty{The Faculty of Graduate Studies}
+\def\@faculty{The Faculty of Graduate and Postdoctoral Studies}
 \def\@campus{Vancouver}
 
 \def\maketitle{
