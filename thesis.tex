@@ -27,7 +27,16 @@
 
 % I worked in different files: input them like so:
 
+ % FOGS want abstract to be on page 2, but 'openright'
+ % conflicts with this.
+ % This grouping allows the Abstract chapter to start
+ % on a left hand page. 
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
 \input{abstract}
+\endgroup
+
 \input{preface}
 % This is because FoGS formatting pedandtry is especially accute when
 % it comes to tables of contents
